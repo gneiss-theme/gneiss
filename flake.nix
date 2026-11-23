@@ -44,6 +44,25 @@
             '';
           });
         };
+
+        # nix run .#sync-obsidian -- <dir>: copy the Obsidian theme into a
+        # checkout of gneiss-theme/obsidian, the repo Obsidian installs from.
+        sync-obsidian = {
+          type = "app";
+          meta.description = "Copy the Obsidian theme into a checkout of gneiss-theme/obsidian";
+          program = lib.getExe (pkgs.writeShellApplication {
+            name = "gneiss-sync-obsidian";
+            runtimeInputs = [ pkgs.coreutils ];
+            text = ''
+              if [ $# -ne 1 ] || [ ! -d "$1/.git" ]; then
+                echo "usage: nix run .#sync-obsidian -- <checkout of gneiss-theme/obsidian>" >&2
+                exit 1
+              fi
+              install -m644 ${(portsFor pkgs).obsidian}/theme.css ${(portsFor pkgs).obsidian}/manifest.json "$1/"
+              echo "Copied Gneiss ${palette.meta.version}'s theme.css and manifest.json to $1."
+            '';
+          });
+        };
       });
 
       checks = forAllSystems (pkgs: import ./nix/checks.nix {

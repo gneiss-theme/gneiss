@@ -1,0 +1,7 @@
+{
+  "name": "Gneiss",
+  "version": "{{version}}",
+  "minAppVersion": "1.15.0",
+  "author": "gneiss-theme",
+  "authorUrl": "https://github.com/gneiss-theme"
+}

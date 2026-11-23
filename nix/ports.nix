@@ -31,6 +31,13 @@ rec {
   # A Vicinae theme, for Vicinae's themes folder.
   vicinae = render "gneiss.toml" ../templates/vicinae.toml;
 
+  # An Obsidian theme: the folder Obsidian installs to its themes folder,
+  # with theme.css and manifest.json.
+  obsidian = pkgs.runCommandLocal "gneiss-obsidian" { } ''
+    install -Dm644 ${render "theme.css" ../templates/obsidian/theme.css} "$out/theme.css"
+    install -Dm644 ${render "manifest.json" ../templates/obsidian/manifest.json} "$out/manifest.json"
+  '';
+
   # A Neovim plugin with the "gneiss" colorscheme.
   neovim = pkgs.vimUtils.buildVimPlugin {
     pname = "gneiss";
@@ -65,6 +72,8 @@ rec {
     install -Dm644 ${colorscheme} "$out/colors/gneiss.lua"
     install -Dm644 ${alacritty} "$out/dist/alacritty/gneiss.toml"
     install -Dm644 ${vicinae} "$out/dist/vicinae/gneiss.toml"
+    mkdir -p "$out/dist/obsidian"
+    cp ${obsidian}/* "$out/dist/obsidian/"
     mkdir -p "$out/dist/vscode"
     cp -r ${vscodeFolder}/. "$out/dist/vscode/"
   '';

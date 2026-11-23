@@ -11,6 +11,7 @@ To use it, run **Preferences: Color Theme** from the Command Palette and
 choose **Gneiss**.
 
 This theme is part of [Gneiss](https://github.com/gneiss-theme/gneiss),
-which also has ports for Neovim, Alacritty and Vicinae. It began as a fork
-of [Nord's VS Code theme](https://github.com/nordtheme/visual-studio-code);
+which also has ports for Neovim, Alacritty, Vicinae and Obsidian. It began
+as a fork of
+[Nord's VS Code theme](https://github.com/nordtheme/visual-studio-code);
 NOTICE has its license.

@@ -32,6 +32,23 @@ in
       -l ${../checks/neovim.lua} ${baseJson} | tee $out
   '';
 
+  # The Obsidian theme keeps to the rules of Obsidian's theme directory: a
+  # manifest with the required fields, a name without "Theme", nothing
+  # fetched from the network and no !important.
+  obsidian = pkgs.runCommandLocal "gneiss-check-obsidian"
+    { nativeBuildInputs = [ pkgs.jq pkgs.gnugrep ]; } ''
+    theme=${ports.obsidian}
+    jq -e '(.name | type == "string") and (.author | type == "string")
+      and (.minAppVersion | type == "string") and (.name | test("theme"; "i") | not)' \
+      "$theme/manifest.json" > /dev/null
+    jq -e '.version == "${palette.meta.version}"' "$theme/manifest.json" > /dev/null
+    if grep -nE 'url\(|@import|!important|\{\{' "$theme/theme.css"; then
+      echo "theme.css fetches something, uses !important, or has something left in double braces." >&2
+      exit 1
+    fi
+    touch $out
+  '';
+
   # The VS Code extension's manifest and theme parse, with nothing left
   # unfilled.
   vscode = pkgs.runCommandLocal "gneiss-check-vscode"

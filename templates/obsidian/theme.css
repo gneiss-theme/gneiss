@@ -1,0 +1,125 @@
+/*
+ * Gneiss for Obsidian: Nord's colors on neutral dark grays.
+ * https://github.com/gneiss-theme/gneiss
+ *
+ * Rendered from Gneiss's palette.toml, which the build fills in where the
+ * template names a color in double braces. Dark only: in light mode,
+ * Obsidian's own colors show.
+ *
+ * It sets Obsidian's gray scale and accent from Gneiss's grays and gneiss8,
+ * then the colors Obsidian would otherwise take from its own defaults:
+ * borders, selections, status colors, callouts, code and headings. Where
+ * Obsidian tints a background with a color, Gneiss uses a neutral gray.
+ */
+
+.theme-dark {
+  /* Obsidian's grays, darkest to lightest, on Gneiss's: gneiss0 for notes,
+     gneiss1 for sidebars and code, gneiss2 for raised controls, gneiss3 for
+     borders, then the comment gray and fg-muted for faint and muted text. */
+  --color-base-00: {{gneiss0}};
+  --color-base-05: {{gneiss0}};
+  --color-base-10: {{gneiss1}};
+  --color-base-20: {{gneiss1}};
+  --color-base-25: {{gneiss2}};
+  --color-base-30: {{gneiss2}};
+  --color-base-35: {{gneiss3}};
+  --color-base-40: {{gneiss-comment}};
+  --color-base-50: {{gneiss-comment}};
+  --color-base-60: {{fg-muted}};
+  --color-base-70: {{fg-muted}};
+  --color-base-100: {{gneiss4}};
+
+  /* The accent, gneiss8, as Obsidian takes it. An accent color picked in
+     Obsidian's settings replaces it. */
+  --accent-h: {{gneiss8-h}};
+  --accent-s: {{gneiss8-s}}%;
+  --accent-l: {{gneiss8-l}}%;
+
+  --color-red: {{gneiss11}};
+  --color-orange: {{gneiss12}};
+  --color-yellow: {{gneiss13}};
+  --color-green: {{gneiss14}};
+  --color-cyan: {{gneiss8}};
+  --color-blue: {{gneiss9}};
+  --color-purple: {{gneiss15}};
+  --color-pink: {{gneiss15}};
+
+  /* Surfaces and borders */
+  --background-modifier-border: {{gneiss3}};
+  --background-modifier-border-hover: {{gneiss-comment}};
+  --background-modifier-border-focus: {{gneiss-comment}};
+  --background-modifier-active-hover: {{gneiss2}};
+  --nav-item-background-selected: {{gneiss2}};
+  --table-selection: {{gneiss2}};
+  --text-selection: {{gneiss2}};
+
+  /* Text */
+  --text-accent: {{gneiss8}};
+  --text-accent-hover: {{gneiss7}};
+  --text-on-accent: {{gneiss0}};
+  --text-on-accent-inverted: {{gneiss0}};
+  --text-error: {{gneiss11}};
+  --text-warning: {{gneiss13}};
+  --text-success: {{gneiss14}};
+  --caret-color: {{gneiss4}};
+  --interactive-accent: {{gneiss8}};
+  --interactive-accent-hover: {{gneiss7}};
+
+  /* Headings in the accent, as in Gneiss's VS Code theme. */
+  --h1-color: {{gneiss8}};
+  --h2-color: {{gneiss8}};
+  --h3-color: {{gneiss8}};
+  --h4-color: {{gneiss8}};
+  --h5-color: {{gneiss8}};
+  --h6-color: {{gneiss8}};
+
+  /* Tags: accent text on the panel gray. */
+  --tag-background: {{gneiss1}};
+  --tag-background-hover: {{gneiss2}};
+  --tag-border-color: {{gneiss3}};
+  --tag-border-color-hover: {{gneiss3}};
+
+  /* Callouts. Warnings are yellow and errors red, as everywhere in Gneiss;
+     questions take the deep blue, for hints, rather than orange. */
+  --callout-default: {{gneiss9}};
+  --callout-info: {{gneiss9}};
+  --callout-todo: {{gneiss9}};
+  --callout-summary: {{gneiss8}};
+  --callout-tip: {{gneiss8}};
+  --callout-important: {{gneiss8}};
+  --callout-success: {{gneiss14}};
+  --callout-question: {{gneiss10}};
+  --callout-warning: {{gneiss13}};
+  --callout-fail: {{gneiss11}};
+  --callout-error: {{gneiss11}};
+  --callout-bug: {{gneiss11}};
+  --callout-example: {{gneiss15}};
+  --callout-quote: {{fg-muted}};
+  --callout-border-width: 0 0 0 3px;
+  --callout-border-opacity: 1;
+
+  /* Code, with the same colors as Gneiss's VS Code and Neovim ports. */
+  --code-background: {{gneiss1}};
+  --code-normal: {{gneiss4}};
+  --code-comment: {{gneiss-comment}};
+  --code-function: {{gneiss8}};
+  --code-important: {{gneiss13}};
+  --code-keyword: {{gneiss9}};
+  --code-operator: {{gneiss9}};
+  --code-property: {{gneiss7}};
+  --code-punctuation: {{gneiss6}};
+  --code-string: {{gneiss14}};
+  --code-tag: {{gneiss9}};
+  --code-value: {{gneiss15}};
+
+  /* The graph view */
+  --graph-node-tag: {{gneiss14}};
+  --graph-node-attachment: {{gneiss13}};
+}
+
+/* Callouts on the panel gray, edged on the left in their color, rather than
+   tinted with it. Obsidian sets the tint on .callout itself, not through a
+   variable. */
+.theme-dark .callout {
+  background-color: {{gneiss1}};
+}

@@ -58,7 +58,7 @@ are Nord's values. [`palette.toml`](palette.toml) also names roles (`bg`,
 | VS Code | Coming to the VS Code Marketplace and Open VSX. Until then, through Nix (below). |
 | Alacritty | Download [`dist/alacritty/gneiss.toml`](dist/alacritty/gneiss.toml) and import it (below). |
 | Vicinae | Copy [`dist/vicinae/gneiss.toml`](dist/vicinae/gneiss.toml) to `~/.config/vicinae/themes/`, then choose Gneiss in Vicinae's settings. |
-| Obsidian | Planned. |
+| Obsidian | Copy [`dist/obsidian/`](dist/obsidian) to your vault's `.obsidian/themes/Gneiss/`, then choose Gneiss under Settings → Appearance. Coming to Obsidian's theme directory. |
 
 **Neovim**, with [lazy.nvim](https://github.com/folke/lazy.nvim):
 
@@ -120,6 +120,10 @@ holds everything else.
 
 [`site/`](site) is the docs site, built with Astro Starlight from the same
 `palette.toml` and deployed to GitHub Pages from `main`.
+[gneiss-theme/obsidian](https://github.com/gneiss-theme/obsidian) is the
+repo Obsidian installs the theme from, and
+`nix run .#sync-obsidian -- <checkout>` copies the rendered theme into a
+checkout of it.
 
 ```sh
 nix run .#render   # render colors/ and dist/ from the templates

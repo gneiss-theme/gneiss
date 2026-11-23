@@ -1,0 +1,34 @@
+---
+title: Obsidian
+description: Install Gneiss's Obsidian theme.
+---
+
+Gneiss for Obsidian is a theme, dark only, that sets Obsidian's grays,
+accent and colors from Gneiss's palette. Headings and links are `gneiss8`,
+code uses the same colors as Gneiss's editor ports, and callouts keep
+their meaning: blue for notes, yellow for warnings, red for errors. Where
+Obsidian tints a background with the accent, such as the selected file or a
+tag, Gneiss uses a neutral gray.
+
+## Install
+
+Gneiss is on its way to Obsidian's theme directory. Until it's listed, put
+its two files in your vault's themes folder by hand, from the vault's
+folder:
+
+```sh
+mkdir -p .obsidian/themes/Gneiss
+for file in theme.css manifest.json; do
+  curl -fLo ".obsidian/themes/Gneiss/$file" \
+    "https://raw.githubusercontent.com/gneiss-theme/gneiss/main/dist/obsidian/$file"
+done
+```
+
+Then, in **Settings → Appearance**, set **Base color scheme** to **Dark**
+and choose **Gneiss** under **Themes**.
+
+## With Nix
+
+The flake's `obsidian` package is the theme's folder, with `theme.css` and
+`manifest.json`, to copy to a vault's `.obsidian/themes/Gneiss/`.
+[Nix](/gneiss/apps/nix/) sets up the `gneiss` input.

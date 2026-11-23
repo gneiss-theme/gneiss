@@ -40,7 +40,7 @@ export default defineConfig({
 				{ label: 'Design', link: '/design/' },
 				{
 					label: 'Apps',
-					items: ['apps/neovim', 'apps/vscode', 'apps/alacritty', 'apps/vicinae', 'apps/nix'],
+					items: ['apps/neovim', 'apps/vscode', 'apps/alacritty', 'apps/vicinae', 'apps/obsidian', 'apps/nix'],
 				},
 				{ label: 'Changelog', link: 'https://github.com/gneiss-theme/gneiss/blob/main/CHANGELOG.md' },
 			],
