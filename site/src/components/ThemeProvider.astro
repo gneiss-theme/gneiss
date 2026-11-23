@@ -1,0 +1,10 @@
+---
+// Gneiss is dark only, so the site is too: no light mode, and no theme
+// picker (ThemeSelect.astro is empty). Starlight's pickers call
+// updatePickers, which has nothing to update.
+---
+
+<script is:inline>
+	document.documentElement.dataset.theme = 'dark';
+	window.StarlightThemeProvider = { updatePickers() {} };
+</script>

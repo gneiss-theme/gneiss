@@ -1,0 +1,43 @@
+---
+title: Palette
+description: Gneiss's colors, what each is for, and their contrast with the background.
+---
+
+import BaseColors from '../../components/BaseColors.astro';
+import ContrastSteps from '../../components/ContrastSteps.astro';
+import Roles from '../../components/Roles.astro';
+
+Every color on this page comes from
+[`palette.toml`](https://github.com/gneiss-theme/gneiss/blob/main/palette.toml)
+when the site builds, and every contrast ratio is worked out from it. Ratios
+are WCAG 2 contrast ratios.
+
+## Base colors
+
+The base colors are numbered like Nord's, so a port can be compared with
+Nord's. The four background grays and the comment gray are Gneiss's own;
+the text and accent colors are Nord's values.
+
+<BaseColors />
+
+## Contrast steps
+
+The background grays keep Nord's steps: each is as far from the background
+as its Nord counterpart is from Nord's. The comment gray is as light as
+Nord's comment color. [Design](/gneiss/design/) explains why.
+
+<ContrastSteps />
+
+## Roles
+
+`palette.toml` also names roles, for apps themed from raw colors rather than
+by a port of their own, such as a window manager's borders or a desktop
+shell. Each role names a base color, except `fg-muted`.
+
+<Roles />
+
+## As data
+
+- [`palette.toml`](https://github.com/gneiss-theme/gneiss/blob/main/palette.toml)
+  has the base colors under `[base]` and the roles under `[colors]`.
+- The Nix flake has it parsed, as `lib.palette`: see [Nix](/gneiss/apps/nix/).

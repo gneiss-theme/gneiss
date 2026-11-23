@@ -1,0 +1,34 @@
+---
+title: Vicinae
+description: Install Gneiss's theme for the Vicinae launcher.
+---
+
+Gneiss for [Vicinae](https://github.com/vicinaehq/vicinae) is a theme file
+for its themes folder:
+[`dist/vicinae/gneiss.toml`](https://github.com/gneiss-theme/gneiss/blob/main/dist/vicinae/gneiss.toml).
+Its accent is `gneiss8`, as in Gneiss's other ports.
+
+## Install
+
+Save the file to Vicinae's themes folder:
+
+```sh
+curl -fLo ~/.config/vicinae/themes/gneiss.toml --create-dirs \
+  https://raw.githubusercontent.com/gneiss-theme/gneiss/main/dist/vicinae/gneiss.toml
+```
+
+Then choose **Gneiss** as the theme in Vicinae's settings.
+
+## With Nix
+
+The flake's `vicinae` package is the file. With Home Manager:
+
+```nix
+xdg.configFile."vicinae/themes/gneiss.toml".source = gneiss.vicinae;
+programs.vicinae.settings.theme = {
+  dark.name = "gneiss";
+  light.name = "gneiss";
+};
+```
+
+[Nix](/gneiss/apps/nix/) sets up the `gneiss` input.

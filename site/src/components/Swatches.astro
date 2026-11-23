@@ -1,0 +1,65 @@
+---
+// The base colors as swatches, in palette.toml's four groups.
+import { base, labelOn } from '../lib/palette';
+
+const groups: [string, string[]][] = [
+	['Backgrounds', ['gneiss0', 'gneiss1', 'gneiss2', 'gneiss3', 'gneiss-comment']],
+	['Text', ['gneiss4', 'gneiss5', 'gneiss6']],
+	['Cool accents', ['gneiss7', 'gneiss8', 'gneiss9', 'gneiss10']],
+	['Warm accents', ['gneiss11', 'gneiss12', 'gneiss13', 'gneiss14', 'gneiss15']],
+];
+---
+
+<div class="swatches not-content">
+	{
+		groups.map(([label, names]) => (
+			<section>
+				<h2>{label}</h2>
+				<div class="row">
+					{names.map((name) => (
+						<div class="swatch" style={`background: ${base[name]}; color: ${labelOn(base[name])}`}>
+							<span>{name}</span>
+							<code>{base[name]}</code>
+						</div>
+					))}
+				</div>
+			</section>
+		))
+	}
+</div>
+
+<style>
+	.swatches {
+		display: grid;
+		gap: 1.5rem;
+	}
+	h2 {
+		margin-bottom: 0.5rem;
+		color: var(--role-fg-muted);
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+	}
+	.row {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+		gap: 0.5rem;
+	}
+	.swatch {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 0.125rem;
+		min-height: 5.5rem;
+		padding: 0.625rem 0.75rem;
+		border: 1px solid var(--gneiss3);
+		border-radius: 0.5rem;
+		font-size: var(--sl-text-sm);
+	}
+	.swatch span {
+		font-weight: 600;
+	}
+	.swatch code {
+		font-size: var(--sl-text-xs);
+		opacity: 0.85;
+	}
+</style>

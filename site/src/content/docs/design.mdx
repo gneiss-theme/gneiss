@@ -1,0 +1,74 @@
+---
+title: Design
+description: Where Gneiss came from, how its grays were chosen, and how it differs from Nord.
+---
+
+## Where it came from
+
+Gneiss began in a personal NixOS configuration as Nord with neutral
+backgrounds. Its colors started as a copy of
+[Nord](https://www.nordtheme.com)'s values, and from there it's its own
+theme: nothing follows Nord, so a change to Nord doesn't change Gneiss.
+
+## The background grays
+
+Nord's backgrounds, which it calls Polar Night, are blue-grays. Gneiss's are
+neutral grays, each chosen to keep its Nord counterpart's contrast with the
+background: `gneiss1` to `gneiss3` are 1.24, 1.45 and 1.70 to 1 against
+`gneiss0`, and `nord1` to `nord3` are 1.24, 1.45 and 1.69 to 1 against
+`nord0`. So panels, the current
+line, selections and borders stand apart from the background as much as they
+do in Nord. The background itself, `gneiss0`, is darker than `nord0`.
+
+[The palette page](/gneiss/palette/#contrast-steps) works these ratios out
+from the colors, and the repo's checks fail if they drift.
+
+## The comment gray
+
+Nord's comment color, `#616E88`, is a lighter blue-gray. `gneiss-comment`,
+`#6E6E6E`, is a neutral gray as light as it (their relative luminance is
+within 2%), so comments recede as far as they do in Nord.
+
+## Text and accents
+
+The text colors (`gneiss4` to `gneiss6`) and the accents (`gneiss7` to
+`gneiss15`) are Nord's values. The cool accents carry most of the syntax:
+functions, keywords and types. The warm ones keep their meaning: red for
+errors and deletions, yellow for warnings and green for strings and
+additions.
+
+## fg-muted
+
+`fg-muted`, `#A2A2A2`, is the one role that isn't a base color. It's a gray
+for secondary text that stays readable, at least 4.5:1, on `gneiss2`, the
+gray of selections and raised controls. Nord has no color for this.
+
+## Changes from Nord in the ports
+
+The VS Code theme began as a fork of
+[Nord's VS Code theme](https://github.com/nordtheme/visual-studio-code), and
+the Neovim colorscheme as a fork of
+[nord.nvim](https://github.com/gbprod/nord.nvim). Both make the same choice
+of color for each part of the editor as their originals, with Gneiss's
+colors in place of Nord's. Where the ports differ from Nord:
+
+- Terminal bright black (color 8) is the comment gray. Terminal programs dim
+  text with it, and Nord's border gray, which Nord uses there, is too faint
+  to read.
+- Vicinae's accent is `gneiss8`, where Vicinae's own Nord theme uses
+  `nord9`, and its border, selection and grid grays are all `gneiss3`.
+
+## Versions
+
+Gneiss is 0.x while its colors may still change, and every color change is
+listed in the
+[changelog](https://github.com/gneiss-theme/gneiss/blob/main/CHANGELOG.md).
+It reaches 1.0 once they've settled.
+
+## Credits
+
+Gneiss's colors began as Nord's, by Arctic Ice Studio and Sven Greb. Its
+VS Code theme began as theirs, and its Neovim colorscheme as gbprod's
+nord.nvim. The repo's
+[NOTICE](https://github.com/gneiss-theme/gneiss/blob/main/NOTICE) has their
+licenses. Gneiss is MIT licensed, and isn't affiliated with Nord.

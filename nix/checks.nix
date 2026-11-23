@@ -1,6 +1,6 @@
 # nix flake check: the rendered files are current, the palette keeps the
 # contrast it's designed around, and the ports load.
-{ pkgs, self, palette, ports }:
+{ pkgs, self, palette, ports, site }:
 let
   inherit (pkgs) lib;
   baseJson = pkgs.writeText "gneiss-base.json" (builtins.toJSON palette.base);
@@ -47,5 +47,5 @@ in
     touch $out
   '';
 }
-# And every package builds.
-// lib.mapAttrs' (name: lib.nameValuePair "package-${name}") ports
+# And every package builds, the site included.
+// lib.mapAttrs' (name: lib.nameValuePair "package-${name}") (ports // { inherit site; })

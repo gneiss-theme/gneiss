@@ -1,0 +1,73 @@
+---
+title: Nix
+description: Use Gneiss's ports and palette from its Nix flake.
+---
+
+The repo is a Nix flake. It has every port as a package, for Linux and
+Apple silicon macOS, and the palette as data.
+
+## The input
+
+```nix
+# flake.nix
+inputs.gneiss = {
+  url = "github:gneiss-theme/gneiss";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+```
+
+## The ports
+
+`packages.<system>` has one package per port:
+
+| Package | What it is |
+|---|---|
+| `neovim` | A Neovim plugin with the `gneiss` colorscheme |
+| `vscode` | The VS Code extension, `gneiss-theme.gneiss` |
+| `alacritty` | An Alacritty config file with the colors, to import |
+| `vicinae` | A Vicinae theme file |
+| `dist` | Every rendered file, as committed in the repo; the default package |
+| `site` | This site |
+
+In a Home Manager module, with the flake's inputs passed in:
+
+```nix
+{ inputs, pkgs, ... }:
+let
+  gneiss = inputs.gneiss.packages.${pkgs.stdenv.hostPlatform.system};
+in
+{
+  programs.neovim.plugins = [ gneiss.neovim ];
+  programs.vscode.profiles.default.extensions = [ gneiss.vscode ];
+  programs.alacritty.settings.general.import = [ "${gneiss.alacritty}" ];
+  xdg.configFile."vicinae/themes/gneiss.toml".source = gneiss.vicinae;
+}
+```
+
+## The palette
+
+`inputs.gneiss.lib.palette` is
+[`palette.toml`](https://github.com/gneiss-theme/gneiss/blob/main/palette.toml),
+parsed, for theming apps that have no port:
+
+- `meta`: the name and version.
+- `base`: the [base colors](/gneiss/palette/#base-colors), such as
+  `base.gneiss8`.
+- `colors`: each [role](/gneiss/palette/#roles)'s hex, such as
+  `colors.accent`.
+
+```nix
+# A window manager's border, in the accent color
+let colors = inputs.gneiss.lib.palette.colors; in
+"rgb(${builtins.substring 1 6 colors.accent})"
+```
+
+## Working on Gneiss
+
+In a clone of the repo:
+
+```sh
+nix run .#render   # render colors/ and dist/ from palette.toml and templates/
+nix flake check    # check the rendered files, contrast, the ports and this site
+nix build .#site   # build this site into ./result
+```

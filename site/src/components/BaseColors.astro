@@ -1,0 +1,24 @@
+---
+// The base colors: each one's use, from its comment in palette.toml, and its
+// contrast with the background.
+import { base, describe, formatRatio, ratio } from '../lib/palette';
+---
+
+<table>
+	<thead>
+		<tr><th></th><th>Color</th><th>Hex</th><th>Use</th><th class="ratio">On gneiss0</th></tr>
+	</thead>
+	<tbody>
+		{
+			Object.entries(base).map(([name, hex]) => (
+				<tr>
+					<td><span class="chip" style={`background: ${hex}`} /></td>
+					<td><code>{name}</code></td>
+					<td><code>{hex}</code></td>
+					<td>{describe(name)}</td>
+					<td class="ratio">{name === 'gneiss0' ? '' : formatRatio(ratio(hex, base.gneiss0))}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>

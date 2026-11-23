@@ -1,0 +1,60 @@
+---
+title: Neovim
+description: Install Gneiss's Neovim colorscheme.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The colorscheme is
+[`colors/gneiss.lua`](https://github.com/gneiss-theme/gneiss/blob/main/colors/gneiss.lua),
+at the root of the repo, so a plugin manager can install the repo as a
+plugin. It's dark only, and it also sets the terminal's 16 colors for
+Neovim's `:terminal`.
+
+## Install
+
+<Tabs>
+<TabItem label="vim.pack">
+
+With Neovim's built-in plugin manager, in Neovim 0.12 or later:
+
+```lua
+vim.pack.add({ "https://github.com/gneiss-theme/gneiss" })
+vim.cmd.colorscheme("gneiss")
+```
+
+</TabItem>
+<TabItem label="lazy.nvim">
+
+With [lazy.nvim](https://github.com/folke/lazy.nvim):
+
+```lua
+{
+  "gneiss-theme/gneiss",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("gneiss")
+  end,
+}
+```
+
+</TabItem>
+<TabItem label="Nix">
+
+The flake's `neovim` package is the plugin. With Home Manager:
+
+```nix
+programs.neovim.plugins = [
+  {
+    plugin = gneiss.neovim;
+    type = "lua";
+    config = ''vim.cmd.colorscheme("gneiss")'';
+  }
+];
+```
+
+[Nix](/gneiss/apps/nix/) sets up the `gneiss` input.
+
+</TabItem>
+</Tabs>

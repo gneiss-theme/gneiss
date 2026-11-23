@@ -1,0 +1,29 @@
+---
+title: VS Code
+description: Install Gneiss's VS Code color theme.
+---
+
+The extension is `gneiss-theme.gneiss`, with one color theme, Gneiss.
+
+## Install
+
+Gneiss is coming to the VS Code Marketplace and Open VSX. Until then, it's
+installed through Nix: the flake's `vscode` package is the extension. With
+Home Manager:
+
+```nix
+programs.vscode.profiles.default.extensions = [ gneiss.vscode ];
+```
+
+[Nix](/gneiss/apps/nix/) sets up the `gneiss` input.
+
+## Use it
+
+Run **Preferences: Color Theme** from the Command Palette and choose
+**Gneiss**, or set it in `settings.json`:
+
+```json
+{
+  "workbench.colorTheme": "Gneiss"
+}
+```

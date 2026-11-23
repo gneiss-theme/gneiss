@@ -1,0 +1,67 @@
+/* Starlight's colors, from Gneiss's palette. components/Head.astro sets the
+   palette's colors as custom properties from palette.toml. The site is dark
+   only, so these replace Starlight's dark colors. Tinted backgrounds, such
+   as an aside's, are Gneiss's neutral panel gray rather than a tint. */
+:root {
+	color-scheme: dark;
+
+	--sl-color-white: var(--gneiss6);
+	--sl-color-gray-1: var(--gneiss5);
+	--sl-color-gray-2: var(--gneiss4);
+	--sl-color-gray-3: var(--role-fg-muted);
+	--sl-color-gray-4: var(--gneiss-comment);
+	--sl-color-gray-5: var(--gneiss3);
+	--sl-color-gray-6: var(--gneiss1);
+	--sl-color-black: var(--gneiss0);
+
+	--sl-color-accent-low: var(--gneiss1);
+	--sl-color-accent: var(--gneiss8);
+	--sl-color-accent-high: var(--gneiss8);
+	--sl-color-text-invert: var(--gneiss0);
+
+	--sl-color-blue-low: var(--gneiss1);
+	--sl-color-blue: var(--gneiss9);
+	--sl-color-blue-high: var(--gneiss9);
+	--sl-color-green-low: var(--gneiss1);
+	--sl-color-green: var(--gneiss14);
+	--sl-color-green-high: var(--gneiss14);
+	/* Starlight's caution color: Gneiss's warning yellow. */
+	--sl-color-orange-low: var(--gneiss1);
+	--sl-color-orange: var(--gneiss13);
+	--sl-color-orange-high: var(--gneiss13);
+	--sl-color-red-low: var(--gneiss1);
+	--sl-color-red: var(--gneiss11);
+	--sl-color-red-high: var(--gneiss11);
+	--sl-color-purple-low: var(--gneiss1);
+	--sl-color-purple: var(--gneiss15);
+	--sl-color-purple-high: var(--gneiss15);
+
+	--sl-color-hairline-light: var(--gneiss3);
+	--sl-color-hairline: var(--gneiss2);
+	--sl-color-backdrop-overlay: color-mix(in srgb, var(--gneiss0) 70%, transparent);
+}
+
+/* A color sample in the palette tables. */
+.chip {
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid var(--gneiss3);
+	border-radius: 0.25rem;
+	vertical-align: middle;
+}
+
+.sl-markdown-content :is(td, th).ratio {
+	font-variant-numeric: tabular-nums;
+	text-align: end;
+	white-space: nowrap;
+}
+
+/* The current page in the sidebar: Gneiss's selection gray with accent
+   text, rather than an accent-colored block. */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover,
+.sidebar-content a[aria-current='page']:focus {
+	background-color: var(--gneiss2);
+	color: var(--gneiss8);
+}

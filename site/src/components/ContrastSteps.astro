@@ -1,0 +1,41 @@
+---
+// How Gneiss's grays match Nord's: the background steps, the comment gray's
+// lightness and fg-muted's contrast, the same comparisons as
+// checks/contrast.py.
+import { base, formatRatio, luminance, nord, ratio, role } from '../lib/palette';
+
+const steps = [1, 2, 3].map((step) => ({
+	gneiss: `gneiss${step}`,
+	nord: `nord${step}`,
+	gneissRatio: ratio(base[`gneiss${step}`], base.gneiss0),
+	nordRatio: ratio(nord[`nord${step}` as keyof typeof nord], nord.nord0),
+}));
+
+const comment = luminance(base['gneiss-comment']);
+const nordComment = luminance(nord['nord-comment']);
+const muted = ratio(role('fg-muted'), base.gneiss2);
+---
+
+<table>
+	<thead>
+		<tr><th>Gneiss</th><th class="ratio">On gneiss0</th><th>Nord</th><th class="ratio">On nord0</th></tr>
+	</thead>
+	<tbody>
+		{
+			steps.map((s) => (
+				<tr>
+					<td><span class="chip" style={`background: ${base[s.gneiss]}`} /> <code>{s.gneiss}</code></td>
+					<td class="ratio">{formatRatio(s.gneissRatio)}</td>
+					<td><span class="chip" style={`background: ${nord[s.nord as keyof typeof nord]}`} /> <code>{s.nord}</code></td>
+					<td class="ratio">{formatRatio(s.nordRatio)}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+
+<p>
+	<code>gneiss-comment</code>'s relative luminance is {comment.toFixed(4)}, and Nord's comment color's
+	is {nordComment.toFixed(4)}: {(Math.abs(comment - nordComment) / nordComment * 100).toFixed(1)}%
+	apart. <code>fg-muted</code> is {formatRatio(muted)} on <code>gneiss2</code>.
+</p>

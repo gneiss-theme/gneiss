@@ -1,0 +1,35 @@
+---
+title: Alacritty
+description: Install Gneiss's colors for Alacritty.
+---
+
+Gneiss for Alacritty is a config file with the colors, which your own config
+imports:
+[`dist/alacritty/gneiss.toml`](https://github.com/gneiss-theme/gneiss/blob/main/dist/alacritty/gneiss.toml).
+Bright black, which terminal programs dim text with, is the comment gray.
+
+## Install
+
+Save the file next to your config:
+
+```sh
+curl -fLo ~/.config/alacritty/gneiss.toml \
+  https://raw.githubusercontent.com/gneiss-theme/gneiss/main/dist/alacritty/gneiss.toml
+```
+
+Then import it from `~/.config/alacritty/alacritty.toml`:
+
+```toml
+[general]
+import = ["~/.config/alacritty/gneiss.toml"]
+```
+
+## With Nix
+
+The flake's `alacritty` package is the file. With Home Manager:
+
+```nix
+programs.alacritty.settings.general.import = [ "${gneiss.alacritty}" ];
+```
+
+[Nix](/gneiss/apps/nix/) sets up the `gneiss` input.

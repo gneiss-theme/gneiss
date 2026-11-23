@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Gneiss's logo, after the VS Code icon's bands: grays with four of its
+       accents, lighter at the edges so the tile shows on gneiss0. Also
+       public/favicon.svg. -->
+  <defs><clipPath id="tile"><rect x="3" y="3" width="250" height="250" rx="45"/></clipPath></defs>
+  <g clip-path="url(#tile)">
+    <g transform="rotate(-6 128 128)">
+      <rect x="-48" y="-48" width="352" height="84" fill="#383838"/>
+      <rect x="-48" y="36" width="352" height="40" fill="#2D2D2D"/>
+      <rect x="-48" y="76" width="352" height="26" fill="#383838"/>
+      <rect x="-48" y="102" width="352" height="10" fill="#88C0D0"/>
+      <rect x="-48" y="112" width="352" height="38" fill="#2D2D2D"/>
+      <rect x="-48" y="150" width="352" height="11" fill="#81A1C1"/>
+      <rect x="-48" y="161" width="352" height="34" fill="#424242"/>
+      <rect x="-48" y="195" width="352" height="9" fill="#A3BE8C"/>
+      <rect x="-48" y="204" width="352" height="26" fill="#2D2D2D"/>
+      <rect x="-48" y="230" width="352" height="9" fill="#B48EAD"/>
+      <rect x="-48" y="239" width="352" height="70" fill="#383838"/>
+    </g>
+  </g>
+  <rect x="3" y="3" width="250" height="250" rx="45" fill="none" stroke="#424242" stroke-width="6"/>
+</svg>

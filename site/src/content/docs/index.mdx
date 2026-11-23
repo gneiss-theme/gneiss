@@ -1,0 +1,37 @@
+---
+title: Gneiss
+description: Nord's colors on neutral dark grays.
+template: splash
+editUrl: false
+hero:
+  tagline: Nord's colors on neutral dark grays. Pronounced "nice", after the gray, banded bedrock of the Nordic countries.
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Install it
+      link: /gneiss/apps/neovim/
+      icon: right-arrow
+    - text: See the palette
+      link: /gneiss/palette/
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Swatches from '../../components/Swatches.astro';
+
+Gneiss keeps Nord's syntax and status colors, which are distinct enough to
+tell apart at a glance without anything shouting. It swaps Nord's blue-gray
+backgrounds for neutral grays with the same contrast steps between them, so
+the result reads like Nord in a darker, quieter room.
+
+<Swatches />
+
+## Apps
+
+<CardGrid>
+	<LinkCard title="Neovim" href="/gneiss/apps/neovim/" description="A colorscheme: install the repo as a plugin." />
+	<LinkCard title="VS Code" href="/gneiss/apps/vscode/" description="A color theme extension." />
+	<LinkCard title="Alacritty" href="/gneiss/apps/alacritty/" description="A config file to import." />
+	<LinkCard title="Vicinae" href="/gneiss/apps/vicinae/" description="A theme for Vicinae's themes folder." />
+	<LinkCard title="Nix" href="/gneiss/apps/nix/" description="Every port as a flake package, and the palette as data." />
+</CardGrid>

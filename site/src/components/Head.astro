@@ -1,0 +1,16 @@
+---
+// Starlight's head, plus Gneiss's colors from palette.toml as custom
+// properties: --gneiss0 to --gneiss15 and --gneiss-comment for the base
+// colors, and --role-<name> for the roles.
+import Default from '@astrojs/starlight/components/Head.astro';
+import { base, roles } from '../lib/palette';
+
+const properties = [
+	...Object.entries(base).map(([name, hex]) => `--${name}: ${hex};`),
+	...roles.map(({ role, hex }) => `--role-${role}: ${hex};`),
+].join(' ');
+---
+
+<Default />
+<meta name="theme-color" content={base.gneiss0} />
+<style is:inline set:html={`:root { ${properties} }`} />

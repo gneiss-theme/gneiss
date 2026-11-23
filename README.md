@@ -15,6 +15,10 @@ the result reads like Nord in a darker, quieter room. Gneiss started as a
 copy of Nord's values and is its own theme from there: a change to Nord
 doesn't change Gneiss.
 
+The docs site, [gneiss-theme.github.io/gneiss](https://gneiss-theme.github.io/gneiss/),
+has the palette with its contrast ratios, how Gneiss was designed, and how
+to install each port.
+
 ## Palette
 
 The base colors are numbered like Nord's, so any port can be compared with
@@ -114,9 +118,13 @@ installing without Nix: [`colors/`](colors) holds the Neovim colorscheme,
 at the root so plugin managers can install this repo, and [`dist/`](dist)
 holds everything else.
 
+[`site/`](site) is the docs site, built with Astro Starlight from the same
+`palette.toml` and deployed to GitHub Pages from `main`.
+
 ```sh
 nix run .#render   # render colors/ and dist/ from the templates
 nix flake check    # check that they're current, plus contrast and loading
+nix build .#site   # build the docs site into ./result
 ```
 
 CI runs `nix flake check` on x86_64 and aarch64 Linux, for every push to

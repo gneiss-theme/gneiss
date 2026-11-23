@@ -13,6 +13,7 @@
 
       palette = import ./nix/palette.nix { inherit lib; };
       portsFor = pkgs: import ./nix/ports.nix { inherit pkgs palette; };
+      siteFor = pkgs: import ./nix/site.nix { inherit pkgs palette; };
     in
     {
       # palette.toml, parsed: meta (name, version), base (the base colors)
@@ -21,7 +22,7 @@
 
       packages = forAllSystems (pkgs:
         let ports = portsFor pkgs;
-        in ports // { default = ports.dist; });
+        in ports // { default = ports.dist; site = siteFor pkgs; });
 
       # nix run .#render: write colors/ and dist/ from the templates.
       apps = forAllSystems (pkgs: {
@@ -48,6 +49,7 @@
       checks = forAllSystems (pkgs: import ./nix/checks.nix {
         inherit pkgs self palette;
         ports = portsFor pkgs;
+        site = siteFor pkgs;
       });
     };
 }

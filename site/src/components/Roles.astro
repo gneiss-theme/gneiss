@@ -1,0 +1,31 @@
+---
+// The roles: the base color each one names, and its contrast with bg. An
+// on- role is text on another role, so its contrast is with that one.
+import { describe, formatRatio, ratio, role, roles } from '../lib/palette';
+
+const contrast = (name: string, hex: string) => {
+	if (name === 'bg') return '';
+	const under = name.startsWith('on-') ? name.slice(3) : 'bg';
+	const text = formatRatio(ratio(hex, role(under)));
+	return under === 'bg' ? text : `${text} on ${under}`;
+};
+---
+
+<table>
+	<thead>
+		<tr><th></th><th>Role</th><th>Color</th><th>Hex</th><th class="ratio">On bg</th></tr>
+	</thead>
+	<tbody>
+		{
+			roles.map(({ role: name, from, hex }) => (
+				<tr>
+					<td><span class="chip" style={`background: ${hex}`} /></td>
+					<td><code>{name}</code></td>
+					<td>{from ? <code>{from}</code> : describe(name) || "Gneiss's own"}</td>
+					<td><code>{hex}</code></td>
+					<td class="ratio">{contrast(name, hex)}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
