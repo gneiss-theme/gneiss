@@ -1,0 +1,41 @@
+# Gneiss for Vicinae: Nord's colors on neutral grays.
+#
+# Follows the Nord theme that ships with Vicinae, with the base colors from
+# palette.toml, which the build fills in where a color is named in double
+# braces. Vicinae works out every color not set here from these.
+#
+# Two changes from Vicinae's Nord. The accent is gneiss8, as on the rest of
+# the desktop, where Vicinae's Nord uses nord9. And the border, selection and
+# grid grays are all gneiss3: Vicinae's Nord uses three grays for them, each
+# within a small step of nord3's contrast with the background.
+
+[meta]
+version = 1
+name = "Gneiss"
+description = "Nord's colors on neutral grays"
+variant = "dark"
+
+[colors.core]
+background = "#1C1C1C"
+foreground = "#D8DEE9"
+secondary_background = "#2D2D2D"
+border = "#424242"
+accent = "#88C0D0"
+accent_foreground = "#1C1C1C"
+
+[colors.accents]
+blue = "#81A1C1"
+green = "#A3BE8C"
+magenta = "#B48EAD"
+orange = "#D08770"
+purple = "#B48EAD"
+red = "#BF616A"
+yellow = "#EBCB8B"
+cyan = "#88C0D0"
+
+[colors.list.item.selection]
+background = "#424242"
+secondary_background = "#424242"
+
+[colors.grid.item]
+background = "#424242"

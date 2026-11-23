@@ -1,0 +1,37 @@
+# Gneiss for Alacritty. The colors are Gneiss's base color names in double
+# braces, filled in from palette.toml.
+
+[colors.primary]
+background = "#1C1C1C"
+foreground = "#D8DEE9"
+
+[colors.cursor]
+cursor = "#D8DEE9"
+text = "#1C1C1C"
+
+# The same gray as a selection in VS Code; the text keeps its own color.
+[colors.selection]
+background = "#383838"
+text = "CellForeground"
+
+[colors.normal]
+black = "#2D2D2D"
+red = "#BF616A"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+blue = "#81A1C1"
+magenta = "#B48EAD"
+cyan = "#88C0D0"
+white = "#E5E9F0"
+
+# Bright black is what terminal programs dim text with. Nord uses its border
+# gray, at 1.7:1 too faint to read; Gneiss uses its comment gray (3.3:1).
+[colors.bright]
+black = "#6E6E6E"
+red = "#BF616A"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+blue = "#81A1C1"
+magenta = "#B48EAD"
+cyan = "#8FBCBB"
+white = "#ECEFF4"
