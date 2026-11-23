@@ -1,5 +1,5 @@
-# Runs the flake's checks on each system it supports: the committed files
-# match a fresh render, the contrast ratios hold, Neovim loads the
+# Runs the flake's checks on Linux: the committed files match a fresh
+# render, the contrast ratios hold, Neovim loads the
 # colorscheme, and every port builds.
 name: Check
 
@@ -16,8 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # x86_64-linux, aarch64-linux and aarch64-darwin.
-        runner: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+        # x86_64-linux and aarch64-linux. aarch64-darwin is left out: GitHub's
+        # macOS runners are often too busy to pick up the job at all.
+        runner: [ubuntu-latest, ubuntu-24.04-arm]
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

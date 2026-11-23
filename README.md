@@ -119,8 +119,8 @@ nix run .#render   # render colors/ and dist/ from the templates
 nix flake check    # check that they're current, plus contrast and loading
 ```
 
-CI runs `nix flake check` on x86_64 and aarch64 Linux and Apple silicon
-macOS, for every push to `main` and every pull request.
+CI runs `nix flake check` on x86_64 and aarch64 Linux, for every push to
+`main` and every pull request.
 
 The flake reads only files git tracks, so `git add` a new template before
 rendering.
