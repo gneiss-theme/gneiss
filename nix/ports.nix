@@ -66,6 +66,14 @@ rec {
     '';
   };
 
+  # The VS Code extension packaged as a VSIX, as the stores and GitHub
+  # releases take it.
+  vsix = pkgs.runCommandLocal "gneiss-${version}.vsix" { nativeBuildInputs = [ pkgs.vsce ]; } ''
+    cp -r --no-preserve=mode ${vscodeFolder} extension
+    cd extension
+    HOME=$TMPDIR vsce package --no-dependencies --out "$out"
+  '';
+
   # Every rendered file, laid out as committed in the repo: colors/ for
   # Neovim's plugin managers, dist/ for everything else.
   dist = pkgs.runCommandLocal "gneiss-dist" { } ''

@@ -3,3 +3,4 @@ result-*
 /site/node_modules/
 /site/dist/
 /site/.astro/
+/.github/release/node_modules/

@@ -63,6 +63,16 @@ in
     fi
     touch $out
   '';
+
+  # The VSIX the stores get is Gneiss's version from gneiss-theme, marked as
+  # a preview.
+  vsix = pkgs.runCommandLocal "gneiss-check-vsix"
+    { nativeBuildInputs = [ pkgs.unzip pkgs.gnugrep ]; } ''
+    manifest=$(unzip -p ${ports.vsix} extension.vsixmanifest)
+    grep -q 'Id="gneiss" Version="${palette.meta.version}" Publisher="gneiss-theme"' <<<"$manifest"
+    grep -q '<GalleryFlags>Public Preview</GalleryFlags>' <<<"$manifest"
+    touch $out
+  '';
 }
 # And every package builds, the site included.
 // lib.mapAttrs' (name: lib.nameValuePair "package-${name}") (ports // { inherit site; })

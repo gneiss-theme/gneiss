@@ -137,6 +137,20 @@ CI runs `nix flake check` on x86_64 and aarch64 Linux, for every push to
 The flake reads only files git tracks, so `git add` a new template before
 rendering.
 
+## Releasing
+
+1. Set the new `version` in `palette.toml`, give it a dated section in
+   `CHANGELOG.md`, such as `## 0.2.0 (2026-12-01)`, run `nix run .#render`,
+   and commit.
+2. Tag the commit `v0.2.0` and push the tag. The
+   [release workflow](.github/workflows/release.yml) runs the checks,
+   publishes the VS Code extension to the Visual Studio Marketplace and Open
+   VSX, and creates a GitHub release with every port's files.
+3. For Obsidian, run `nix run .#sync-obsidian -- <checkout>` on a checkout
+   of [gneiss-theme/obsidian](https://github.com/gneiss-theme/obsidian),
+   commit, and push a tag of the bare version, such as `0.2.0`. Its own
+   workflow releases the theme, which Obsidian then offers as an update.
+
 ## Credits and license
 
 Gneiss is MIT licensed; see [LICENSE](LICENSE). Its colors began as

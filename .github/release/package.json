@@ -1,0 +1,9 @@
+{
+  "name": "gneiss-release-tools",
+  "private": true,
+  "description": "The tools release.yml publishes the VS Code extension with, pinned by package-lock.json.",
+  "dependencies": {
+    "@vscode/vsce": "4.1.0",
+    "ovsx": "1.4.0"
+  }
+}
