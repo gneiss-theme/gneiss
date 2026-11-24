@@ -4,6 +4,7 @@
 let
   inherit (pkgs) lib;
   baseJson = pkgs.writeText "gneiss-base.json" (builtins.toJSON palette.base);
+  vscodeManifest = lib.importJSON ../templates/vscode/package.json;
 in
 {
   # colors/ and dist/ are what the templates render to now.
@@ -64,12 +65,12 @@ in
     touch $out
   '';
 
-  # The VSIX the stores get is Gneiss's version from gneiss-theme, marked as
-  # a preview.
+  # The VSIX the stores get is the extension package.json names, at Gneiss's
+  # version, marked as a preview.
   vsix = pkgs.runCommandLocal "gneiss-check-vsix"
     { nativeBuildInputs = [ pkgs.unzip pkgs.gnugrep ]; } ''
     manifest=$(unzip -p ${ports.vsix} extension.vsixmanifest)
-    grep -q 'Id="gneiss" Version="${palette.meta.version}" Publisher="gneiss-theme"' <<<"$manifest"
+    grep -q 'Id="${vscodeManifest.name}" Version="${palette.meta.version}" Publisher="${vscodeManifest.publisher}"' <<<"$manifest"
     grep -q '<GalleryFlags>Public Preview</GalleryFlags>' <<<"$manifest"
     touch $out
   '';
