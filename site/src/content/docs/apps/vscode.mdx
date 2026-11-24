@@ -7,9 +7,22 @@ The extension is `gneiss-theme.gneiss-vscode`, with one color theme, Gneiss.
 
 ## Install
 
-Gneiss is coming to the VS Code Marketplace and Open VSX. Until then, it's
-installed through Nix: the flake's `vscode` package is the extension. With
-Home Manager:
+Gneiss is on the
+[VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=gneiss-theme.gneiss-vscode)
+and [Open VSX](https://open-vsx.org/extension/gneiss-theme/gneiss-vscode),
+which VSCodium and other VS Code builds use. In the Extensions view, search
+for **Gneiss** and install it, or from a terminal:
+
+```sh
+code --install-extension gneiss-theme.gneiss-vscode
+```
+
+Each [GitHub release](https://github.com/gneiss-theme/gneiss/releases) also
+has the extension as a `.vsix` file, for **Extensions: Install from VSIX…**.
+
+## With Nix
+
+The flake's `vscode` package is the extension. With Home Manager:
 
 ```nix
 programs.vscode.profiles.default.extensions = [ gneiss.vscode ];

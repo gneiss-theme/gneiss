@@ -55,7 +55,7 @@ are Nord's values. [`palette.toml`](palette.toml) also names roles (`bg`,
 | App | Install |
 |---|---|
 | Neovim | Install this repo as a plugin (see below), then `:colorscheme gneiss`. |
-| VS Code | Coming to the VS Code Marketplace and Open VSX. Until then, through Nix (below). |
+| VS Code | Install `gneiss-theme.gneiss-vscode` from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=gneiss-theme.gneiss-vscode) or [Open VSX](https://open-vsx.org/extension/gneiss-theme/gneiss-vscode). |
 | Alacritty | Download [`dist/alacritty/gneiss.toml`](dist/alacritty/gneiss.toml) and import it (below). |
 | Vicinae | Copy [`dist/vicinae/gneiss.toml`](dist/vicinae/gneiss.toml) to `~/.config/vicinae/themes/`, then choose Gneiss in Vicinae's settings. |
 | Obsidian | In Obsidian's theme directory: Settings → Appearance → Themes → Manage, then search for Gneiss. Or copy [`dist/obsidian/`](dist/obsidian) to your vault's `.obsidian/themes/Gneiss/`. |
