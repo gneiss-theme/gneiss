@@ -3,7 +3,7 @@
 Gneiss is pre-1.0, so any release may change its colors. Every color change
 is listed here.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-11-23)
 
 The first version. Gneiss began in a personal NixOS configuration and moved
 here.
