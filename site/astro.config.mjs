@@ -1,4 +1,4 @@
-// Gneiss's docs site, served at gneiss-theme.github.io/gneiss. The flake
+// Gneiss's docs site, served at gneisstheme.com. The flake
 // builds it (nix build .#site), and .github/workflows/site.yml deploys it.
 import { readFileSync } from 'node:fs';
 import { defineConfig, passthroughImageService } from 'astro/config';
@@ -11,8 +11,7 @@ const gneissCode = ExpressiveCodeTheme.fromJSONString(
 );
 
 export default defineConfig({
-	site: 'https://gneiss-theme.github.io',
-	base: '/gneiss',
+	site: 'https://gneisstheme.com',
 	// The site has no raster images to process, so it doesn't need sharp.
 	image: { service: passthroughImageService() },
 	// The palette page reads ../palette.toml, outside the site's folder.

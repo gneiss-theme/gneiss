@@ -10,7 +10,7 @@ neutral grays with the same contrast steps between them.
 To use it, run **Preferences: Color Theme** from the Command Palette and
 choose **Gneiss**.
 
-This theme is part of [Gneiss](https://github.com/gneiss-theme/gneiss),
+This theme is part of [Gneiss](https://gneisstheme.com),
 which also has ports for Neovim, Alacritty, Vicinae and Obsidian. It began
 as a fork of
 [Nord's VS Code theme](https://github.com/nordtheme/visual-studio-code);

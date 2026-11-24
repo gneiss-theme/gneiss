@@ -1,5 +1,6 @@
 # Builds the docs site with Nix and deploys it to GitHub Pages, at
-# gneiss-theme.github.io/gneiss, on every push to main.
+# gneisstheme.com, on every push to main. The domain is set in the repo's
+# Pages settings.
 name: Site
 
 on:

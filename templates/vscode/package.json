@@ -6,6 +6,7 @@
   "publisher": "gneiss-theme",
   "preview": true,
   "license": "MIT",
+  "homepage": "https://gneisstheme.com",
   "icon": "icon.png",
   "galleryBanner": {
     "color": "{{gneiss0}}",

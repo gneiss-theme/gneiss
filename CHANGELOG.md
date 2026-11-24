@@ -20,7 +20,7 @@ here.
   - Alacritty.
   - Vicinae.
   - Obsidian.
-- The docs site, at gneiss-theme.github.io/gneiss.
+- The docs site, at gneisstheme.com.
 - Changes from Nord in the ports:
   - Terminal bright black (color 8) is the comment gray, where Nord uses its
     border gray, which is too faint to read.

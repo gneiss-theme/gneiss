@@ -15,7 +15,7 @@ the result reads like Nord in a darker, quieter room. Gneiss started as a
 copy of Nord's values and is its own theme from there: a change to Nord
 doesn't change Gneiss.
 
-The docs site, [gneiss-theme.github.io/gneiss](https://gneiss-theme.github.io/gneiss/),
+The docs site, [gneisstheme.com](https://gneisstheme.com/),
 has the palette with its contrast ratios, how Gneiss was designed, and how
 to install each port.
 
