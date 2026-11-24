@@ -58,7 +58,7 @@ are Nord's values. [`palette.toml`](palette.toml) also names roles (`bg`,
 | VS Code | Coming to the VS Code Marketplace and Open VSX. Until then, through Nix (below). |
 | Alacritty | Download [`dist/alacritty/gneiss.toml`](dist/alacritty/gneiss.toml) and import it (below). |
 | Vicinae | Copy [`dist/vicinae/gneiss.toml`](dist/vicinae/gneiss.toml) to `~/.config/vicinae/themes/`, then choose Gneiss in Vicinae's settings. |
-| Obsidian | Copy [`dist/obsidian/`](dist/obsidian) to your vault's `.obsidian/themes/Gneiss/`, then choose Gneiss under Settings → Appearance. Coming to Obsidian's theme directory. |
+| Obsidian | In Obsidian's theme directory: Settings → Appearance → Themes → Manage, then search for Gneiss. Or copy [`dist/obsidian/`](dist/obsidian) to your vault's `.obsidian/themes/Gneiss/`. |
 
 **Neovim**, with [lazy.nvim](https://github.com/folke/lazy.nvim):
 
