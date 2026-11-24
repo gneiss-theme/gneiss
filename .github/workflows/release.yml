@@ -5,10 +5,9 @@
 # files and that version's changelog. Each step can be rerun: a version
 # that's already published or released is left as it is.
 #
-# The Marketplace trusts this workflow through Trusted Publishing, so no
-# token is stored for it. Open VSX uses the OVSX_PAT secret until a trusted
-# publisher is registered there; once the secret is removed, ovsx uses
-# trusted publishing too.
+# Both stores trust this workflow through trusted publishing, so no token is
+# stored for either. Each knows it by the repo and this file's name, so
+# renaming the file means registering it again with both.
 name: Release
 
 on:
@@ -72,10 +71,9 @@ jobs:
       - name: Publish to Open VSX
         env:
           VERSION: ${{ steps.version.outputs.version }}
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
         run: |
           nix shell --inputs-from . nixpkgs#nodejs -c .github/release/node_modules/.bin/ovsx publish \
-            --skip-duplicate --packagePath "release/gneiss-$VERSION.vsix"
+            --trusted-publishing --skip-duplicate --packagePath "release/gneiss-$VERSION.vsix"
 
       - name: Create the GitHub release
         env:
