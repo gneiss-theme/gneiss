@@ -26,6 +26,7 @@ inputs.gneiss = {
 | `vscode` | The VS Code extension, `gneiss-theme.gneiss-vscode` |
 | `alacritty` | An Alacritty config file with the colors, to import |
 | `vicinae` | A Vicinae theme file |
+| `wayle` | A Wayle theme file |
 | `obsidian` | The Obsidian theme's folder, with `theme.css` and `manifest.json` |
 | `dist` | Every rendered file, as committed in the repo; the default package |
 | `site` | This site |
@@ -42,6 +43,7 @@ in
   programs.vscode.profiles.default.extensions = [ gneiss.vscode ];
   programs.alacritty.settings.general.import = [ "${gneiss.alacritty}" ];
   xdg.configFile."vicinae/themes/gneiss.toml".source = gneiss.vicinae;
+  xdg.configFile."wayle/themes/gneiss.toml".source = gneiss.wayle;
 }
 ```
 
@@ -62,6 +64,10 @@ parsed, for theming apps that have no port:
 let colors = inputs.gneiss.lib.palette.colors; in
 "rgb(${builtins.substring 1 6 colors.accent})"
 ```
+
+`inputs.gneiss.lib.wayle.palette` has the [Wayle theme](/apps/wayle/)'s
+ten colors as Wayle's config takes them, for
+`services.wayle.settings.styling.palette`.
 
 ## Working on Gneiss
 

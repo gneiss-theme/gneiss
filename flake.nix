@@ -20,6 +20,18 @@
       # and colors (each role's hex).
       lib.palette = { inherit (palette) meta base colors; };
 
+      # The Wayle theme's colors as Wayle's config takes them, for
+      # services.wayle.settings.styling.palette. Wayle has no setting that
+      # picks a theme by name: a theme file only lists it in Wayle's
+      # settings, and these colors in the config are what make it the one in
+      # use. The config spells the theme file's fg_muted as fg-muted.
+      lib.wayle.palette =
+        let
+          theme = builtins.fromTOML
+            (palette.render "wayle.toml" (builtins.readFile ./templates/wayle.toml));
+        in
+        lib.removeAttrs theme [ "fg_muted" ] // { fg-muted = theme.fg_muted; };
+
       packages = forAllSystems (pkgs:
         let ports = portsFor pkgs;
         in ports // { default = ports.dist; site = siteFor pkgs; });

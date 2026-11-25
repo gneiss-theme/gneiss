@@ -50,6 +50,13 @@ in
     touch $out
   '';
 
+  # The Wayle theme has the ten colors Wayle's theme files take, and nothing
+  # else.
+  wayle = pkgs.runCommandLocal "gneiss-check-wayle"
+    { nativeBuildInputs = [ pkgs.python3 ]; } ''
+    python3 -I ${../checks/wayle.py} ${ports.wayle} | tee $out
+  '';
+
   # The VS Code extension's manifest and theme parse, with nothing left
   # unfilled.
   vscode = pkgs.runCommandLocal "gneiss-check-vscode"

@@ -1,0 +1,50 @@
+---
+title: Wayle
+description: Install Gneiss's theme for the Wayle desktop shell.
+---
+
+Gneiss for [Wayle](https://wayle.app) is a theme file for its themes
+folder:
+[`dist/wayle/gneiss.toml`](https://github.com/gneiss-theme/gneiss/blob/main/dist/wayle/gneiss.toml).
+A Wayle theme is ten colors, and Wayle works out its borders and hover
+colors from them. The accent is `gneiss8`, as in Gneiss's other ports.
+Text is `gneiss4` and secondary text is `fg-muted`, where Wayle's own Nord
+theme uses `nord6` and `nord4`, so secondary text is clearly dimmer than
+the rest.
+
+## Install
+
+Save the file to Wayle's themes folder:
+
+```sh
+curl -fLo ~/.config/wayle/themes/gneiss.toml --create-dirs \
+  https://raw.githubusercontent.com/gneiss-theme/gneiss/main/dist/wayle/gneiss.toml
+```
+
+Then open Wayle's settings with `wayle panel settings` and choose
+**gneiss** from the themes. Wayle names a theme after its file. The theme
+provider must be Wayle's own, the default; the others take their colors from
+the wallpaper.
+
+## With Nix
+
+The flake's `wayle` package is the file, and `lib.wayle.palette` has its
+colors the way Wayle's config spells them. Wayle has no setting that picks a
+theme by name, so the colors in the config are what make Gneiss the theme in
+use, and the file lists it in Wayle's settings. With Home Manager's Wayle
+module:
+
+```nix
+xdg.configFile."wayle/themes/gneiss.toml".source = gneiss.wayle;
+services.wayle.settings.styling = {
+  theme-provider = "wayle";
+  palette = inputs.gneiss.lib.wayle.palette;
+};
+```
+
+A theme chosen in Wayle's settings is saved to
+`~/.config/wayle/runtime.toml` and wins over the config, one color at a
+time. `wayle config reset styling.palette.<color>` puts one back to the
+config's color.
+
+[Nix](/apps/nix/) sets up the `gneiss` input.

@@ -52,6 +52,7 @@ jobs:
           cp colors/gneiss.lua release/gneiss.lua
           cp dist/alacritty/gneiss.toml release/gneiss-alacritty.toml
           cp dist/vicinae/gneiss.toml release/gneiss-vicinae.toml
+          cp dist/wayle/gneiss.toml release/gneiss-wayle.toml
           cp dist/obsidian/theme.css dist/obsidian/manifest.json obsidian/Gneiss/
           (cd obsidian && nix shell --inputs-from .. nixpkgs#zip -c zip -qr ../release/gneiss-obsidian.zip Gneiss)
           awk -v heading="## $VERSION (" 'index($0, heading) == 1 { found = 1; next } /^## / && found { exit } found' \

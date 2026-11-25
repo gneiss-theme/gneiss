@@ -58,6 +58,7 @@ are Nord's values. [`palette.toml`](palette.toml) also names roles (`bg`,
 | VS Code | Install `gneiss-theme.gneiss-vscode` from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=gneiss-theme.gneiss-vscode) or [Open VSX](https://open-vsx.org/extension/gneiss-theme/gneiss-vscode). |
 | Alacritty | Download [`dist/alacritty/gneiss.toml`](dist/alacritty/gneiss.toml) and import it (below). |
 | Vicinae | Copy [`dist/vicinae/gneiss.toml`](dist/vicinae/gneiss.toml) to `~/.config/vicinae/themes/`, then choose Gneiss in Vicinae's settings. |
+| Wayle | Copy [`dist/wayle/gneiss.toml`](dist/wayle/gneiss.toml) to `~/.config/wayle/themes/`, then choose gneiss in Wayle's settings (`wayle panel settings`). |
 | Obsidian | In Obsidian's theme directory: Settings → Appearance → Themes → Manage, then search for Gneiss. Or copy [`dist/obsidian/`](dist/obsidian) to your vault's `.obsidian/themes/Gneiss/`. |
 
 **Neovim**, with [lazy.nvim](https://github.com/folke/lazy.nvim):
@@ -103,11 +104,15 @@ in
   programs.vscode.profiles.default.extensions = [ gneiss.vscode ];
   programs.alacritty.settings.general.import = [ "${gneiss.alacritty}" ];
   xdg.configFile."vicinae/themes/gneiss.toml".source = gneiss.vicinae;
+  xdg.configFile."wayle/themes/gneiss.toml".source = gneiss.wayle;
 }
 ```
 
 `inputs.gneiss.lib.palette` has the colors as data: `meta`, `base` (the
-table above) and `colors` (each role's hex).
+table above) and `colors` (each role's hex). `inputs.gneiss.lib.wayle.palette`
+has the Wayle theme's colors as Wayle's config takes them, for
+`services.wayle.settings.styling.palette`: Wayle has no setting that picks
+a theme by name.
 
 ## How it's built
 

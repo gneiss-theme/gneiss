@@ -31,6 +31,9 @@ rec {
   # A Vicinae theme, for Vicinae's themes folder.
   vicinae = render "gneiss.toml" ../templates/vicinae.toml;
 
+  # A Wayle theme, for Wayle's themes folder.
+  wayle = render "gneiss-wayle.toml" ../templates/wayle.toml;
+
   # An Obsidian theme: the folder Obsidian installs to its themes folder,
   # with theme.css and manifest.json.
   obsidian = pkgs.runCommandLocal "gneiss-obsidian" { } ''
@@ -80,6 +83,7 @@ rec {
     install -Dm644 ${colorscheme} "$out/colors/gneiss.lua"
     install -Dm644 ${alacritty} "$out/dist/alacritty/gneiss.toml"
     install -Dm644 ${vicinae} "$out/dist/vicinae/gneiss.toml"
+    install -Dm644 ${wayle} "$out/dist/wayle/gneiss.toml"
     mkdir -p "$out/dist/obsidian"
     cp ${obsidian}/* "$out/dist/obsidian/"
     mkdir -p "$out/dist/vscode"

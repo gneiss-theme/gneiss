@@ -1,0 +1,27 @@
+# Gneiss for Wayle: Nord's colors on neutral grays.
+#
+# A theme file for Wayle's themes folder, with the colors of palette.toml's
+# roles, which the build fills in where a role is named in double braces.
+# Wayle works out every other color from these ten: its borders and hover
+# colors mix elevated with fg, and text on the accent is surface.
+#
+# One change from the Nord theme that ships with Wayle. Text is fg (gneiss4)
+# and secondary text is fg-muted, a gray made to stay readable on elevated,
+# where Wayle's Nord uses nord6 and nord4. With nord4 as the muted color,
+# secondary text is barely dimmer than the rest.
+#
+# Theme files spell the muted color fg_muted; Wayle's config, fg-muted.
+
+bg = "{{bg}}"
+surface = "{{surface}}"
+elevated = "{{elevated}}"
+
+fg = "{{fg}}"
+fg_muted = "{{fg-muted}}"
+
+primary = "{{accent}}"
+
+red = "{{red}}"
+yellow = "{{yellow}}"
+green = "{{green}}"
+blue = "{{blue}}"
