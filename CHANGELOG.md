@@ -3,6 +3,18 @@
 Gneiss is pre-1.0, so any release may change its colors. Every color change
 is listed here.
 
+## Unreleased
+
+- Obsidian uses the accent less, so notes look calmer:
+  - Headings are `gneiss6` (h1 and h2, and the note's title) and `gneiss5`
+    (h3 to h6), where they were `gneiss8`.
+  - Links are `gneiss9`, and `gneiss8` on hover.
+  - Tags are `fg-muted`, and `gneiss8` on hover.
+  - Bold text and callout titles are `gneiss6`; callouts keep their color
+    on the edge and the icon.
+  - Highlights are on `gneiss3`, where Obsidian tinted them yellow, and
+    quotes are edged in `gneiss-comment` instead of the accent.
+
 ## 0.1.0 (2026-11-23)
 
 The first version. Gneiss began in a personal NixOS configuration and moved
