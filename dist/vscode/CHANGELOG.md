@@ -3,6 +3,13 @@
 Gneiss is pre-1.0, so any release may change its colors. Every color change
 is listed here.
 
+## 0.3.0 (2026-11-25)
+
+- A Wayle port: a theme file for Wayle's themes folder, and
+  `lib.wayle.palette` in the flake, its colors as Wayle's config takes them.
+  - Text is `gneiss4` and secondary text is `fg-muted`, where Wayle's own
+    Nord theme uses `nord6` and `nord4`.
+
 ## 0.2.0 (2026-11-25)
 
 - Obsidian uses the accent less, so notes look calmer:
