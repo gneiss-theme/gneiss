@@ -12,7 +12,7 @@
 name = "Gneiss"
 # Gneiss's version, which every port and release takes. It stays 0.x while
 # the colors may still change.
-version = "0.1.0"
+version = "0.2.0"
 
 # The base colors, numbered like Nord's so each port can be compared with
 # Nord's. Ports name them in double braces, such as {{gneiss0}}.

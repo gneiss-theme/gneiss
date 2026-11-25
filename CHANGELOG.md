@@ -3,7 +3,7 @@
 Gneiss is pre-1.0, so any release may change its colors. Every color change
 is listed here.
 
-## Unreleased
+## 0.2.0 (2026-11-25)
 
 - Obsidian uses the accent less, so notes look calmer:
   - Headings are `gneiss6` (h1 and h2, and the note's title) and `gneiss5`
